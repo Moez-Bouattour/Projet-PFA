@@ -1,0 +1,29 @@
+<form (ngSubmit)="updateUser()">
+  <div class="form-group">
+    <label for="name">Nom</label>
+    <input type="text" name="name" class="text form-control" [(ngModel)]="user.name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="text form-control" [(ngModel)]="user.email" required>
+  </div>
+  <div class="form-group">
+    <label for="tel">Téléphone</label>
+    <input type="tel" name="tel" class="text form-control" [(ngModel)]="user.tel" required>
+  </div>
+  <div class="form-group">
+    <label for="ville">Ville</label>
+    <input type="text" name="ville" class="text form-control" [(ngModel)]="user.ville" required>
+  </div>
+  <div class="form-group">
+    <label for="CIN">CIN</label>
+    <input type="number" name="CIN" class="text form-control" [(ngModel)]="user.CIN" required>
+  </div>
+
+  <div class="form-group">
+    <label for="image_CIN">Photo de carte d'isentité</label>
+    <input type="file" name="image_CIN" class="form-control" (change)="onFileSelected($event)">
+    </div>
+
+  <button class="btn btn-dark btn-sm mt-4">Mise à jour</button>
+</form>

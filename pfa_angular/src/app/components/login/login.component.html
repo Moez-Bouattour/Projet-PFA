@@ -1,0 +1,32 @@
+<div class="col-10 m-5">
+    <div class="card">
+        <div class="card-header">
+            Login Here
+        </div>
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="submit()" >
+                <div class="alert alert-danger text-center" [hidden]="!error">
+                    you must enter your Email and Password
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" [(ngModel)]="form.email" required>
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" required>
+                </div>
+                <div class="row g-2">
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" >Login</button>
+                  <div class="row">
+                <a routerLink="/register">Register Now </a>
+                <a routerLink="/resetPassword">forgot Password ? </a>
+                  </div>
+                </div>
+              </form>
+  
+        </div>
+        
+    </div>
+  </div>

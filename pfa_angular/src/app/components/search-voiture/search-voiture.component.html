@@ -1,0 +1,16 @@
+<div class="card mb-3" style="max-width: 1200px;" *ngFor="let v of voitures">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="'http://127.0.0.1:8000'+v.image" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> {{v.modele.marque}} {{v.modele.nomModele}}</h5>
+        <p class="card-text">Ville : {{v.ville.nomVille}}</p>
+        <p class="card-text">à partir de : {{v.prixJ}} DT</p>
+        
+        <button [routerLink]="['/voiture', v.id]" class="center btn btn-primary">Voir détails</button>
+      </div>
+    </div>
+  </div>
+</div>

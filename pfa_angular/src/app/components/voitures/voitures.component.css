@@ -1,0 +1,5 @@
+.container {
+    display: flex; /* Utilisation de Flexbox */
+    align-items: center; /* Aligner verticalement les éléments sur la ligne de base */
+    
+}

@@ -1,0 +1,12 @@
+<h1> Commentaires : </h1>
+<br>
+<div *ngFor="let reclamation of reclamations">
+  <hr>
+  <div class="container">
+  <img [src]="'http://127.0.0.1:8000/storage/bar4jLhOyW5NzPtBMu3W3DDwQ52GFwah5vVpsenC.png'" width="40" height="40">
+  <h3>{{ reclamation.name }}</h3>
+  </div>
+  
+  <p>{{ reclamation.time_passed }}</p>
+  <p> {{ reclamation.description }}</p>
+  <hr>

@@ -1,0 +1,38 @@
+  <div class="card mb-3" style="max-width: 1400px;">
+    <div class="card-header text-center"><h4>{{voiture.modele.marque}} {{voiture.modele.nomModele}}</h4></div>
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="'http://127.0.0.1:8000'+voiture.image" class="img-fluid rounded-start" >
+      </div>
+      <div class="col-md-8">
+        <div class="card-body text-center">
+          <div class="row g-2">
+          <div class="col-6">
+            <div class="p-3 btn-dark">Année : {{voiture.Annee}}</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 btn-dark">Kilométrage : {{voiture.Kilometrage}} KM</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 btn-dark">Immatricule : {{voiture.Immatricule}}</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 btn-dark">Prix Journée : {{voiture.prixJ}} DT</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 btn-dark">Ville : {{voiture.ville.nomVille}}</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 btn-dark">Type : {{voiture.type}}</div>
+          </div>
+          <div *ngIf="voiture.Disponibilite === 1">
+            <button class="btn-success" [routerLink]="['/client', email.split('@')[0], 'voiture', voiture.id,'reservation']">Réserver</button>
+          </div>
+          <div *ngIf="voiture.Disponibilite === 0">
+            <button disabled class="btn-danger">non disponible</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

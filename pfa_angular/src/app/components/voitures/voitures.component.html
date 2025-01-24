@@ -1,0 +1,60 @@
+<div class="text-center"><h2>Tous les voitures</h2></div>
+<div class="card mb-3" style="max-width: 1200px;" *ngFor="let v of voitures">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="'http://127.0.0.1:8000'+v.image" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> {{v.modele.marque}} {{v.modele.nomModele}}</h5>
+        <p class="card-text">Ville : {{v.ville.nomVille}}</p>
+        <p class="card-text">à partir de : {{v.prixJ}} DT</p>
+        
+        <button  class="center btn btn-primary" routerLink="/voiture/{{v.id}}">Voir détails</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<hr>
+<br>
+  <div class="text-center"><h2>Voitures disponibles</h2></div>
+  <div class="card mb-3" style="max-width: 1200px;" *ngFor="let v of voitures">
+    <div class="card h-10 " *ngIf="v.Disponibilite==1">
+      
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="'http://127.0.0.1:8000'+v.image" class="img-fluid rounded-start" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"> {{v.modele.marque}} {{v.modele.nomModele}}</h5>
+              <p class="card-text">Ville : {{v.ville.nomVille}}</p>
+              <p class="card-text">à partir de : {{v.prixJ}} DT</p>
+              
+              <button  class="center btn btn-primary" routerLink="/voiture/{{v.id}}">Voir détails</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+    <hr>
+    <br>
+    <br>
+    <h1> Commentaires : </h1>
+    <br>
+    <div *ngFor="let reclamation of reclamations">
+      <hr>
+      <div class="container">
+      <img [src]="'http://127.0.0.1:8000/storage/bar4jLhOyW5NzPtBMu3W3DDwQ52GFwah5vVpsenC.png'" width="40" height="40">
+      <h3>{{ reclamation.name }}</h3>
+      </div>
+      
+      <p>{{ reclamation.time_passed }}</p>
+      <p> {{ reclamation.description }}</p>
+      <hr>
+    </div>
+ 
+
+

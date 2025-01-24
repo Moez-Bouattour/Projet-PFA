@@ -1,0 +1,60 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitSignup()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" formControlName="name">
+    <div *ngIf="submitted && registrationForm.get('name')?.invalid" class="text-danger">
+      Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="tel">Phone Number</label>
+    <input type="text" class="form-control" formControlName="tel">
+    <div *ngIf="submitted && registrationForm.get('tel')?.invalid" class="text-danger">
+      Please enter a valid phone number starting with '+216' followed by 8 digits.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ville">City</label>
+    <input type="text" class="form-control" formControlName="ville">
+    <div *ngIf="submitted && registrationForm.get('ville')?.invalid" class="text-danger">
+      City is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="CIN">CIN</label>
+    <input type="text" class="form-control" formControlName="CIN">
+    <div *ngIf="submitted && registrationForm.get('CIN')?.invalid" class="text-danger">
+      Please enter a valid 8-digit CIN number.
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div *ngIf="submitted && registrationForm.get('email')?.invalid" class="text-danger">
+      Please enter a valid email address.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <div *ngIf="submitted && registrationForm.get('password')?.invalid" class="text-danger">
+      Password is required and should be at least 6 characters long.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cpassword">Confirm Password</label>
+    <input type="password" class="form-control" formControlName="cpassword">
+    <div *ngIf="submitted && registrationForm.get('cpassword')?.invalid" class="text-danger">
+      Password confirmation is required.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

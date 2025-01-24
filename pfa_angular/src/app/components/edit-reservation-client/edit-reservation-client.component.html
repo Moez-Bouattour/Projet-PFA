@@ -1,0 +1,15 @@
+<form (ngSubmit)="updateReservation()">
+    <div class="form-group">
+      <label for="dateL">Date de livraison</label>
+     <input type="datetime-local" name="dateL" class="form-control" [(ngModel)]="reservation.dateL" (change)="calculatePriceAndDays()">
+  </div>
+  <div class="form-group">
+      <label for="dateR">Date de retour</label>
+      <input type="datetime-local" name="dateR" class="form-control" [(ngModel)]="reservation.dateR" (change)="calculatePriceAndDays()">
+  </div>
+  <div class="form-group">
+    <label for="prix_total">Prix Total</label>
+    <input type="text" name="prix_total" class="form-control" [(ngModel)]="reservation.prix_total" disabled>
+</div>
+  <button class="btn btn-dark btn -sm mt-4">Mise à jour</button>
+  </form>

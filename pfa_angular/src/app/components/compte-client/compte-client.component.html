@@ -1,0 +1,29 @@
+<table class="table">                        
+    <thead>                                  
+        <tr>                                
+            <th scope="col">Nom </th> 
+            <th scope="col">Téléphone </th>          
+            <th scope="col">Ville</th>   
+            <th scope="col">Email</th>
+            <th scope="col">CIN</th>     
+            <th scope="col">Photo de l'identité</th> 
+            <th>Action</th>                  
+        </tr>                                
+    </thead>                                
+    <tbody >                                 
+        <tr *ngIf="user.id===this.id">   
+            <td >{{user.name}}</td>
+            <td>{{user.tel}}</td>    
+            <td>{{user.ville}}</td>      
+            <td>{{user.email}}</td>
+            <td>{{user.CIN}}</td>
+            <td>
+            <img [src]="'http://127.0.0.1:8000'+user.image_CIN" width="70" height="70" class="text-center" >
+            </td>
+            <td>
+                <button class="btn btn-warning btn-sm mx-2" routerLink="/client/{{user.email.split('@')[0]}}/compte/{{user.id}}/edit">Mise à jour </button>
+                <button class="btn btn-warning btn-sm mx-2" routerLink="/client/{{user.email.split('@')[0]}}/compte/{{user.id}}/editPassword">Modifier votre mot de passe</button>
+            </td>         
+        </tr>                               
+    </tbody>                                 
+</table>

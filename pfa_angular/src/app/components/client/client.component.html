@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="card-title text-center"><h1>Voitures disponibles : </h1></div>
+    <div class="col-sm-4" *ngFor="let v of voitures">
+      <div class="card h-8 text-center" *ngIf="v.Disponibilite===1">
+        <img width="150" height="200" [src]="'http://127.0.0.1:8000'+v.image" class="card-img-top" >
+        <div class="card-body">
+          <h5 class="card-title text-center"> {{v.modele.marque}} {{v.modele.nomModele}}</h5>
+        </div>
+        <div class="card-footer">
+          <button [routerLink]="['/client', email1.split('@')[0], 'voiture', v.id]" class="center btn btn-primary">Voir détails</button>
+      </div>
+    </div>
+</div>

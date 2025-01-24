@@ -1,0 +1,94 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example" *ngIf="!loggedIn">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink=""  *ngIf="!loggedIn">Voiture</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample02" >
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="/login">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="/register">Inscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="/reclamation">Reclamation & Suggestion</a>
+          </li>
+        </ul>
+        <form class="form-inline" >
+          <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchQuery" name="search" placeholder="Rechercher voiture ..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" (click)="search()" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example" *ngIf="loggedIn && role==1">
+    <div class="container-fluid" >
+      <a class="navbar-brand" routerLink="admin" >Voiture</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample03" >
+        <ul class="navbar-nav me-auto">
+          
+          <li class="nav-item">
+            <a class="navbar-brand" aria-current="page" >{{this.name}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="admin/reservations">liste des reservations</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="admin/users">liste des utilisateurs</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="admin/reclamations">liste des Réclamations</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" (click)="logout($event)"  routerLink="">Logout</a>
+          </li>
+        </ul>
+        <form class="form-inline" >
+          <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchQuery" name="search" placeholder="Rechercher voiture ..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" (click)="search2()" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example" *ngIf="loggedIn && role!=1">
+    <div class="container-fluid" >
+      <a class="navbar-brand" routerLink="client/{{this.email.split('@')[0]}}">Voiture</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample04" >
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="navbar-brand" aria-current="page" >{{this.name}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="client/{{this.email.split('@')[0]}}/reservation">Liste des reservations</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="client/{{this.email.split('@')[0]}}/compte/{{this.id}}">Compte</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" routerLink="client/{{this.email.split('@')[0]}}/reclamation">Reclamation</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" aria-current="page" (click)="logout($event)" routerLink="">Logout</a>
+          </li>
+        </ul>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchQuery" name="search" placeholder="Rechercher voiture ..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" (click)="search1()" type="submit">Search</button>
+        </form>
+      </div>
+    </div>  
+</nav>
+

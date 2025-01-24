@@ -1,0 +1,35 @@
+<form [formGroup]="reclamationForm" (ngSubmit)="insertRec()">
+    <div class="form-group">
+      <label for="name">Name*</label>
+      <input type="text" class="form-control" formControlName="name">
+      <div *ngIf="submitted && reclamationForm.get('name')?.invalid" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email*</label>
+        <input type="email" class="form-control" formControlName="email">
+        <div *ngIf="submitted && reclamationForm.get('email')?.invalid" class="text-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+  
+    <div class="form-group">
+      <label for="objet">Objet</label>
+      <input type="text" class="form-control" formControlName="objet">
+    </div>
+  
+    <div class="form-group">
+      <label for="description">Votre Commentaire*</label>
+      <input type="text" class="form-control" formControlName="description">
+      <div *ngIf="submitted && reclamationForm.get('description')?.invalid" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+    <div>
+        <p>* : obligatoire</p>
+      </div>
+  
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+  

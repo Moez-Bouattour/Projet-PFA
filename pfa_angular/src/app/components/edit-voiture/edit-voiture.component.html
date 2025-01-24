@@ -1,0 +1,44 @@
+<form (ngSubmit)="updateVoiture()">
+    
+  <div class="form-group">
+      <label for="Annee">Année</label>
+      <input type="text" name="Annee" class="text form-control" [(ngModel)]="voiture.Annee">
+  </div>
+  <div class="form-group">
+      <label for="Disponibilite">Disponibilité</label>
+     <input type="text" name="Disponibilite" class="text form-control" [(ngModel)]="voiture.Disponibilite">
+  </div>
+  <div class="form-group">
+      <label for="prixJ">Prix</label>
+     <input type="text" name="prixJ" class="text form-control" [(ngModel)]="voiture.prixJ">
+  </div>
+  <div class="form-group">
+    <label for="Kilometrage">Kilométrage</label>
+   <input type="text" name="Kilometrage" class="text form-control" [(ngModel)]="voiture.Kilometrage">
+  </div>
+  <div class="form-group">
+  <label for="Immatricule">Matricule</label>
+  <input type="text" name="Immatricule" class="text form-control" [(ngModel)]="voiture.Immatricule">
+  </div>
+  <div class="form-group">
+  <label for="image">Image</label>
+  <input type="file" name="image" class="form-control" (change)="onFileSelected($event)">
+  </div>
+  <div class="form-group">
+  <label for="modele">Modele</label>
+  <input type="text" name="modele.nomModele" class="text form-control" [(ngModel)]="voiture.modele.nomModele">
+  </div>
+  <div class="form-group">
+    <label for="marque">Marque</label>
+    <input type="text" name="modele.marque" class="text form-control" [(ngModel)]="voiture.modele.marque">
+    </div>
+  <div class="form-group">
+  <label for="ville">Ville</label>
+  <input type="text" name="ville.nomVille" class="text form-control" [(ngModel)]="voiture.ville.nomVille">
+  </div>
+  <div class="form-group">
+    <label for="ville">Code Postal</label>
+    <input type="text" name="ville.codePostal" class="text form-control" [(ngModel)]="voiture.ville.codePostal">
+    </div>
+  <button class="btn btn-dark btn -sm mt-4">Mise à jour</button>
+  </form>

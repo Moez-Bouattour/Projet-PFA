@@ -1,0 +1,85 @@
+<div class="card mb-3 text-center" style="max-width: 1200;">
+    <div class="card-header ">
+        <h4>Louer cette voiture</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <img [src]="'http://127.0.0.1:8000'+voitures.image" class="img-fluid rounded-start"  >
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+            <div class="container text-center">
+                <div class="row g-2">
+                    
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Année : {{voitures.Annee}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Marque : {{voitures.modele.marque}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Modéle : {{voitures.modele.nomModele}}</div>
+                  </div>
+                  
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Kilométrage : {{voitures.Kilometrage}} KM</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Immatricule : {{voitures.Immatricule}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Prix Journée : {{voitures.prixJ}} DT</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Ville : {{voitures.ville.nomVille}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3 btn-dark">Type : {{voitures.type}}</div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="insertData()" >
+      <div class="mb-3">
+        <label for="dateL" class="form-label">Date du début livraison</label>
+        <input type="datetime-local" class="form-control" id="dateL" name="dateL" [(ngModel)]="reservation.dateL"  required>
+       
+      </div>
+      <div class="mb-3">
+          <label for="dateR" class="form-label">Date de retour du voiture</label>
+          <input type="datetime-local" class="form-control" id="dateR" name="dateR" [(ngModel)]="reservation.dateR" (change)="calculatePriceAndDays()" required>
+         
+        </div>
+        <div class="mb-3" *ngIf="showTable">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Jour(s) de location</th>
+                
+                <td>{{this.jour}} jour(s)</td>
+              </tr>
+              <tr>
+                <th scope="row">Moyenne par jour</th>
+                
+                <td>{{this.voitures.prixJ}}00 DT</td>
+              </tr>
+              <tr>
+                <th scope="row">Coût total</th>
+                
+                <td id="prix_total" name="prix_total" [(ngModel)]="reservation.prix_total">{{reservation.prix_total}}00 DT</td>
+              </tr>
+             
+            </tbody>
+          </table>
+        
+        </div>
+      <div class="mb-3">
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid"  >confirmer la réservation</button>
+      </div>
+    </form>
+</div>
+    
+  
+  

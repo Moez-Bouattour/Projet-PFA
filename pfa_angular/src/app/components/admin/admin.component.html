@@ -1,0 +1,104 @@
+<div class="container">
+  <h2>Ajouter une nouvelle voiture</h2>
+  <form (ngSubmit)="insertData()">
+    <div class="form-group">
+      <label for="annee">Année</label>
+      <input type="text" name="annee" class="form-control" [(ngModel)]="car.Annee">
+    </div>
+    <div class="form-group">
+      <label for="disponibilite">Disponibilité</label>
+      <input type="text" name="disponibilite" class="form-control" [(ngModel)]="car.Disponibilite">
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="text" name="prix" class="form-control" [(ngModel)]="car.prixJ">
+    </div>
+    <div class="form-group">
+      <label for="kilometrage">Kilométrage</label>
+      <input type="text" name="kilometrage" class="form-control" [(ngModel)]="car.Kilometrage">
+    </div>
+    <div class="form-group">
+      <label for="matricule">Matricule</label>
+      <input type="text" name="matricule" class="form-control" [(ngModel)]="car.Immatricule">
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" (change)="onFileSelected($event)" name="image" class="form-control" >
+    </div>
+    <div class="form-group">
+      <label for="modele">Nom du modèle</label>
+      <input type="text" name="modele.nomModele" class="form-control" [(ngModel)]="car.modele.nomModele">
+    </div>
+    <div class="form-group">
+      <label for="marque">Marque</label>
+      <input type="text" name="modele.marque" class="form-control" [(ngModel)]="car.modele.marque">
+    </div>
+
+    <div class="form-group">
+      <label for="ville">Ville</label>
+      <input type="text" name="ville.nomVille" class="form-control" [(ngModel)]="car.ville.nomVille">
+    </div>
+    <div class="form-group">
+      <label for="ville">Code Postal</label>
+      <input type="text" name="ville.codePostal" class="form-control" [(ngModel)]="car.ville.codePostal">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" name="type" class="form-control" [(ngModel)]="car.type">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Ajouter</button>
+  </form>
+  <div class="container-fluid">
+    <div class="card shadow">
+      <div class="card-header py-1">
+        <h6 class="m-0 font-weight-bold text-primary text-center">Liste des voitures</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Année</th>
+                <th>Disponibilité</th>
+                <th>Prix</th>
+                <th>Kilométrage</th>
+                <th>Matricule</th>
+                <th>Image</th>
+                <th>Modèle</th>
+                <th>Ville</th>
+                <th>Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let v of voitures">
+                <td>{{ v.id }}</td>
+                <td>{{ v.Annee }}</td>
+                <td>
+                  <div>
+                    <div *ngIf="v.Disponibilite === 1; else nonColonne">oui</div>
+                    <ng-template #nonColonne>non</ng-template>
+                  </div>
+                </td>
+                <td>{{ v.prixJ }}</td>
+                <td>{{ v.Kilometrage }}</td>
+                <td>{{ v.Immatricule }}</td>
+                <td><img [src]="'http://127.0.0.1:8000'+v.image" width="100" height="100"></td>
+                <td>{{v.modele.marque}} {{v.modele.nomModele}}</td>
+                <td>{{ v.ville.nomVille  }}</td>
+                <td>{{ v.type }}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="deleteData(v.id)">Supprimer</button>
+                    <button class="btn btn-warning btn-sm mx-2" routerLink="/admin/voiture/{{v.id}}">Mise à jour </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

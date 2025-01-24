@@ -1,0 +1,25 @@
+<table class="table">                        
+    <thead>                                  
+        <tr>                                
+            <th scope="col">#</th>   
+            <th scope="col">Nom </th> 
+            <th scope="col">Téléphone </th>          
+            <th scope="col">Ville</th>   
+            <th scope="col">Email</th>  
+            <th scope="col">Action</th>    
+                             
+        </tr>                                
+    </thead>                                
+    <tbody *ngFor="let u of users">                                 
+        <tr *ngIf="u.id!=1">   
+            <th scope="row">{{u.id}}</th>
+            <td >{{u.name}}</td>
+            <td>{{u.tel}}</td>    
+            <td>{{u.ville}}</td>      
+            <td>{{u.email}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteUser(u.id)">Supprimer compte</button>
+            </td>         
+        </tr>                               
+    </tbody>                                 
+</table>

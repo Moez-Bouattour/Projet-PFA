@@ -1,0 +1,39 @@
+<div class="col-10 m-5">
+    <div class="card">
+        <div class="card-header text-center">
+            Reclamation
+        </div>
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="insertRec()" >
+              <div class="mb-3">
+                <label for="name" class="form-label">Votre nom*</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="reclamation.name" required disabled>
+               
+              </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address*</label>
+                  <input type="email" class="form-control" id="email" name="email" [(ngModel)]="reclamation.email" required disabled>
+                 
+                </div>
+                <div class="mb-3">
+                    <label for="objet" class="form-label">Objet</label>
+                    <input type="text" class="form-control" id="objet" name="objet" [(ngModel)]="reclamation.objet" >
+                   
+                  </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description*</label>
+                  <input type="text" class="form-control" id="description" name="description" [(ngModel)]="reclamation.description" required>
+                </div>
+                <div>
+                  <p>* : obligatoire</p>
+                </div>
+                <div class="row g-2">
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" >Envoyer</button>
+                </div>
+                
+              </form>
+  
+        </div>
+        
+    </div>
+  </div>
